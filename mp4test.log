@@ -1,0 +1,727 @@
+starting build
+
+**********************************************************************
+
+Test build
+build xv6 using make
+
+**********************************************************************
+Trying to build project using make
+make
+make[1]: Entering directory '/tmp/tmpWJD9yi/p'
+make[1]: Nothing to be done for 'both'.
+make[1]: Leaving directory '/tmp/tmpWJD9yi/p'
+
+
+test build PASSED
+ (build xv6 using make)
+
+starting clone_basic
+
+**********************************************************************
+
+Test clone_basic
+test for basic functionailty of clone(), with no cleanup
+
+**********************************************************************
+Running xv6 user progam /mp/Downloads/mp4-mochiiten9158-main/tests/mp4/ctests/clone_basic.c
+Project path is: /tmp/tmpWJD9yi/p
+Trying to build project using make
+make
+make[1]: Entering directory '/tmp/tmpWJD9yi/p'
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -Werror -fno-omit-frame-pointer -I/mp/Downloads/mp4-mochiiten9158-main -fno-stack-protector -fno-pie -no-pie   -c -o tester.o tester.c
+ld -m    elf_i386 -N -e main -Ttext 0 -o _tester tester.o ulib.o usys.o printf.o umalloc.o
+objdump -S _tester > tester.asm
+objdump -t _tester | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > tester.sym
+./mkfs fs.img README _cat _echo _forktest _grep _init _kill _ln _ls _mkdir _rm _sh _stressfs _usertests _wc _zombie _tester 
+nmeta 59 (boot, super, log blocks 30 inode blocks 26, bitmap blocks 1) blocks 941 total 1000
+balloc: first 713 blocks have been allocated
+balloc: write bitmap block at sector 58
+make[1]: Leaving directory '/tmp/tmpWJD9yi/p'
+make qemu-nox 
+make[1]: Entering directory '/tmp/tmpWJD9yi/p'
+qemu-system-i386 -nographic -drive file=fs.img,index=1,media=disk,format=raw -drive file=xv6.img,index=0,media=disk,format=raw -smp 2 -m 512 
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+
+
+iPXE (http://ipxe.org) 00:03.0 CA00 PCI2.10 PnP PMM+1FF8CA10+1FECCA10 CA00
+Press Ctrl-B to configure iPXE (PCI 00:03.0)...                                                                               
+
+
+Booting from Hard Disk..xv6...
+cpu1: starting 1
+cpu0: starting 0
+sb: size 1000 nblocks 941 ninodes 200 nlog 30 logstart 2 inodestart 32 bmap start 58
+init: starting sh
+$ tester
+tester
+PASSED TEST!
+
+test clone_basic PASSED (6 of 6)
+ (test for basic functionailty of clone(), with no cleanup)
+
+starting clone_parent_sleep
+
+**********************************************************************
+
+Test clone_parent_sleep
+test for clone() and join() where the thread terminates before join() is called
+
+**********************************************************************
+Running xv6 user progam /mp/Downloads/mp4-mochiiten9158-main/tests/mp4/ctests/clone_parent_sleep.c
+Project path is: /tmp/tmpWJD9yi/p
+Trying to build project using make
+make
+make[1]: Entering directory '/tmp/tmpWJD9yi/p'
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -Werror -fno-omit-frame-pointer -I/mp/Downloads/mp4-mochiiten9158-main -fno-stack-protector -fno-pie -no-pie   -c -o tester.o tester.c
+ld -m    elf_i386 -N -e main -Ttext 0 -o _tester tester.o ulib.o usys.o printf.o umalloc.o
+objdump -S _tester > tester.asm
+objdump -t _tester | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > tester.sym
+./mkfs fs.img README _cat _echo _forktest _grep _init _kill _ln _ls _mkdir _rm _sh _stressfs _usertests _wc _zombie _tester 
+nmeta 59 (boot, super, log blocks 30 inode blocks 26, bitmap blocks 1) blocks 941 total 1000
+balloc: first 714 blocks have been allocated
+balloc: write bitmap block at sector 58
+make[1]: Leaving directory '/tmp/tmpWJD9yi/p'
+make qemu-nox 
+make[1]: Entering directory '/tmp/tmpWJD9yi/p'
+qemu-system-i386 -nographic -drive file=fs.img,index=1,media=disk,format=raw -drive file=xv6.img,index=0,media=disk,format=raw -smp 2 -m 512 
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+
+
+iPXE (http://ipxe.org) 00:03.0 CA00 PCI2.10 PnP PMM+1FF8CA10+1FECCA10 CA00
+Press Ctrl-B to configure iPXE (PCI 00:03.0)...                                                                               
+
+
+Booting from Hard Disk..xv6...
+cpu1: starting 1
+cpu0: starting 0
+sb: size 1000 nblocks 941 ninodes 200 nlog 30 logstart 2 inodestart 32 bmap start 58
+init: starting sh
+$ tester
+tester
+PASSED TEST!
+
+test clone_parent_sleep PASSED (6 of 6)
+ (test for clone() and join() where the thread terminates before join() is called)
+
+starting clone_child_sleep
+
+**********************************************************************
+
+Test clone_child_sleep
+basic test for clone() and join()
+
+**********************************************************************
+Running xv6 user progam /mp/Downloads/mp4-mochiiten9158-main/tests/mp4/ctests/clone_child_sleep.c
+Project path is: /tmp/tmpWJD9yi/p
+Trying to build project using make
+make
+make[1]: Entering directory '/tmp/tmpWJD9yi/p'
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -Werror -fno-omit-frame-pointer -I/mp/Downloads/mp4-mochiiten9158-main -fno-stack-protector -fno-pie -no-pie   -c -o tester.o tester.c
+ld -m    elf_i386 -N -e main -Ttext 0 -o _tester tester.o ulib.o usys.o printf.o umalloc.o
+objdump -S _tester > tester.asm
+objdump -t _tester | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > tester.sym
+./mkfs fs.img README _cat _echo _forktest _grep _init _kill _ln _ls _mkdir _rm _sh _stressfs _usertests _wc _zombie _tester 
+nmeta 59 (boot, super, log blocks 30 inode blocks 26, bitmap blocks 1) blocks 941 total 1000
+balloc: first 714 blocks have been allocated
+balloc: write bitmap block at sector 58
+make[1]: Leaving directory '/tmp/tmpWJD9yi/p'
+make qemu-nox 
+make[1]: Entering directory '/tmp/tmpWJD9yi/p'
+qemu-system-i386 -nographic -drive file=fs.img,index=1,media=disk,format=raw -drive file=xv6.img,index=0,media=disk,format=raw -smp 2 -m 512 
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+
+
+iPXE (http://ipxe.org) 00:03.0 CA00 PCI2.10 PnP PMM+1FF8CA10+1FECCA10 CA00
+Press Ctrl-B to configure iPXE (PCI 00:03.0)...                                                                               
+
+
+Booting from Hard Disk..xv6...
+cpu1: starting 1
+cpu0: starting 0
+sb: size 1000 nblocks 941 ninodes 200 nlog 30 logstart 2 inodestart 32 bmap start 58
+init: starting sh
+$ tester
+tester
+PASSED TEST!
+
+
+test clone_child_sleep PASSED (6 of 6)
+ (basic test for clone() and join())
+
+starting clone_arguments
+
+**********************************************************************
+
+Test clone_arguments
+test for arguments to clone() and join()
+
+**********************************************************************
+Running xv6 user progam /mp/Downloads/mp4-mochiiten9158-main/tests/mp4/ctests/clone_arguments.c
+Project path is: /tmp/tmpWJD9yi/p
+Trying to build project using make
+make
+make[1]: Entering directory '/tmp/tmpWJD9yi/p'
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -Werror -fno-omit-frame-pointer -I/mp/Downloads/mp4-mochiiten9158-main -fno-stack-protector -fno-pie -no-pie   -c -o tester.o tester.c
+ld -m    elf_i386 -N -e main -Ttext 0 -o _tester tester.o ulib.o usys.o printf.o umalloc.o
+objdump -S _tester > tester.asm
+objdump -t _tester | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > tester.sym
+./mkfs fs.img README _cat _echo _forktest _grep _init _kill _ln _ls _mkdir _rm _sh _stressfs _usertests _wc _zombie _tester 
+nmeta 59 (boot, super, log blocks 30 inode blocks 26, bitmap blocks 1) blocks 941 total 1000
+balloc: first 716 blocks have been allocated
+balloc: write bitmap block at sector 58
+make[1]: Leaving directory '/tmp/tmpWJD9yi/p'
+make qemu-nox 
+make[1]: Entering directory '/tmp/tmpWJD9yi/p'
+qemu-system-i386 -nographic -drive file=fs.img,index=1,media=disk,format=raw -drive file=xv6.img,index=0,media=disk,format=raw -smp 2 -m 512 
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+
+
+iPXE (http://ipxe.org) 00:03.0 CA00 PCI2.10 PnP PMM+1FF8CA10+1FECCA10 CA00
+Press Ctrl-B to configure iPXE (PCI 00:03.0)...                                                                               
+
+
+Booting from Hard Disk..xv6...
+cpu1: starting 1
+cpu0: starting 0
+sb: size 1000 nblocks 941 ninodes 200 nlog 30 logstart 2 inodestart 32 bmap start 58
+init: starting sh
+$ tester
+tester
+Retval is 0
+PASSED TEST!
+
+test clone_arguments PASSED (6 of 6)
+ (test for arguments to clone() and join())
+
+starting clone_bad
+
+**********************************************************************
+
+Test clone_bad
+error tests for clone() and join()
+
+**********************************************************************
+Running xv6 user progam /mp/Downloads/mp4-mochiiten9158-main/tests/mp4/ctests/clone_bad.c
+Project path is: /tmp/tmpWJD9yi/p
+Trying to build project using make
+make
+make[1]: Entering directory '/tmp/tmpWJD9yi/p'
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -Werror -fno-omit-frame-pointer -I/mp/Downloads/mp4-mochiiten9158-main -fno-stack-protector -fno-pie -no-pie   -c -o tester.o tester.c
+ld -m    elf_i386 -N -e main -Ttext 0 -o _tester tester.o ulib.o usys.o printf.o umalloc.o
+objdump -S _tester > tester.asm
+objdump -t _tester | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > tester.sym
+./mkfs fs.img README _cat _echo _forktest _grep _init _kill _ln _ls _mkdir _rm _sh _stressfs _usertests _wc _zombie _tester 
+nmeta 59 (boot, super, log blocks 30 inode blocks 26, bitmap blocks 1) blocks 941 total 1000
+balloc: first 716 blocks have been allocated
+balloc: write bitmap block at sector 58
+make[1]: Leaving directory '/tmp/tmpWJD9yi/p'
+make qemu-nox 
+make[1]: Entering directory '/tmp/tmpWJD9yi/p'
+qemu-system-i386 -nographic -drive file=fs.img,index=1,media=disk,format=raw -drive file=xv6.img,index=0,media=disk,format=raw -smp 2 -m 512 
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+
+
+iPXE (http://ipxe.org) 00:03.0 CA00 PCI2.10 PnP PMM+1FF8CA10+1FECCA10 CA00
+Press Ctrl-B to configure iPXE (PCI 00:03.0)...                                                                               
+
+
+Booting from Hard Disk..xv6...
+cpu1: starting 1
+cpu0: starting 0
+sb: size 1000 nblocks 941 ninodes 200 nlog 30 logstart 2 inodestart 32 bmap start 58
+init: starting sh
+$ tester
+tester
+PASSED TEST!
+
+test clone_bad PASSED (6 of 6)
+ (error tests for clone() and join())
+
+starting clone_return
+
+**********************************************************************
+
+Test clone_return
+test for clone() where the thread function returns, requires manual inspection
+
+**********************************************************************
+Running xv6 user progam /mp/Downloads/mp4-mochiiten9158-main/tests/mp4/ctests/clone_return.c
+Project path is: /tmp/tmpWJD9yi/p
+Trying to build project using make
+make
+make[1]: Entering directory '/tmp/tmpWJD9yi/p'
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -Werror -fno-omit-frame-pointer -I/mp/Downloads/mp4-mochiiten9158-main -fno-stack-protector -fno-pie -no-pie   -c -o tester.o tester.c
+ld -m    elf_i386 -N -e main -Ttext 0 -o _tester tester.o ulib.o usys.o printf.o umalloc.o
+objdump -S _tester > tester.asm
+objdump -t _tester | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > tester.sym
+./mkfs fs.img README _cat _echo _forktest _grep _init _kill _ln _ls _mkdir _rm _sh _stressfs _usertests _wc _zombie _tester 
+nmeta 59 (boot, super, log blocks 30 inode blocks 26, bitmap blocks 1) blocks 941 total 1000
+balloc: first 715 blocks have been allocated
+balloc: write bitmap block at sector 58
+make[1]: Leaving directory '/tmp/tmpWJD9yi/p'
+make qemu-nox 
+make[1]: Entering directory '/tmp/tmpWJD9yi/p'
+qemu-system-i386 -nographic -drive file=fs.img,index=1,media=disk,format=raw -drive file=xv6.img,index=0,media=disk,format=raw -smp 2 -m 512 
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+
+
+iPXE (http://ipxe.org) 00:03.0 CA00 PCI2.10 PnP PMM+1FF8CA10+1FECCA10 CA00
+Press Ctrl-B to configure iPXE (PCI 00:03.0)...                                                                               
+
+
+Booting from Hard Disk..xv6...
+cpu1: starting 1
+cpu0: starting 0
+sb: size 1000 nblocks 941 ninodes 200 nlog 30 logstart 2 inodestart 32 bmap start 58
+init: starting sh
+$ tester
+tester
+PID 4 should trap to 0xffffffff...
+pid 4 tester: trap 14 err 5 on cpu 1 eip 0xffffffff addr 0xffffffff--kill proc
+PID 4 joined. Check manually if the trap succeeded.
+PASSED TEST!
+
+test clone_return PASSED (6 of 6)
+ (test for clone() where the thread function returns, requires manual inspection)
+
+starting clone_wait
+
+**********************************************************************
+
+Test clone_wait
+after clone(), wait() should not succeed
+
+**********************************************************************
+Running xv6 user progam /mp/Downloads/mp4-mochiiten9158-main/tests/mp4/ctests/clone_wait.c
+Project path is: /tmp/tmpWJD9yi/p
+Trying to build project using make
+make
+make[1]: Entering directory '/tmp/tmpWJD9yi/p'
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -Werror -fno-omit-frame-pointer -I/mp/Downloads/mp4-mochiiten9158-main -fno-stack-protector -fno-pie -no-pie   -c -o tester.o tester.c
+ld -m    elf_i386 -N -e main -Ttext 0 -o _tester tester.o ulib.o usys.o printf.o umalloc.o
+objdump -S _tester > tester.asm
+objdump -t _tester | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > tester.sym
+./mkfs fs.img README _cat _echo _forktest _grep _init _kill _ln _ls _mkdir _rm _sh _stressfs _usertests _wc _zombie _tester 
+nmeta 59 (boot, super, log blocks 30 inode blocks 26, bitmap blocks 1) blocks 941 total 1000
+balloc: first 714 blocks have been allocated
+balloc: write bitmap block at sector 58
+make[1]: Leaving directory '/tmp/tmpWJD9yi/p'
+make qemu-nox 
+make[1]: Entering directory '/tmp/tmpWJD9yi/p'
+qemu-system-i386 -nographic -drive file=fs.img,index=1,media=disk,format=raw -drive file=xv6.img,index=0,media=disk,format=raw -smp 2 -m 512 
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+
+
+iPXE (http://ipxe.org) 00:03.0 CA00 PCI2.10 PnP PMM+1FF8CA10+1FECCA10 CA00
+Press Ctrl-B to configure iPXE (PCI 00:03.0)...                                                                               
+
+
+Booting from Hard Disk..xv6...
+cpu1: starting 1
+cpu0: starting 0
+sb: size 1000 nblocks 941 ninodes 200 nlog 30 logstart 2 inodestart 32 bmap start 58
+init: starting sh
+$ tester
+tester
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+
+
+iPXE (http://ipxe.org) 00:03.0 CA00 PCI2.10 PnP PMM+1FF8CA10+1FECCA10 CA00
+Press Ctrl-B to configure iPXE (PCI 00:03.0)...                                                                               
+
+
+Booting from Hard Disk..xv6...
+cpu1: starting 1
+cpu0: starting 0
+sb: size 1000 nblocks 941 ninodes 200 nlog 30 logstart 2 inodestart 32 bmap start 58
+init: starting sh
+$ 
+
+test clone_wait FAILED (0 of 8)
+ (after clone(), wait() should not succeed)
+ tester failed
+
+starting fork_join
+
+**********************************************************************
+
+Test fork_join
+after fork(), join() should not succeed
+
+**********************************************************************
+Running xv6 user progam /mp/Downloads/mp4-mochiiten9158-main/tests/mp4/ctests/fork_join.c
+Project path is: /tmp/tmpWJD9yi/p
+Trying to build project using make
+make
+make[1]: Entering directory '/tmp/tmpWJD9yi/p'
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -Werror -fno-omit-frame-pointer -I/mp/Downloads/mp4-mochiiten9158-main -fno-stack-protector -fno-pie -no-pie   -c -o tester.o tester.c
+ld -m    elf_i386 -N -e main -Ttext 0 -o _tester tester.o ulib.o usys.o printf.o umalloc.o
+objdump -S _tester > tester.asm
+objdump -t _tester | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > tester.sym
+./mkfs fs.img README _cat _echo _forktest _grep _init _kill _ln _ls _mkdir _rm _sh _stressfs _usertests _wc _zombie _tester 
+nmeta 59 (boot, super, log blocks 30 inode blocks 26, bitmap blocks 1) blocks 941 total 1000
+balloc: first 711 blocks have been allocated
+balloc: write bitmap block at sector 58
+make[1]: Leaving directory '/tmp/tmpWJD9yi/p'
+make qemu-nox 
+make[1]: Entering directory '/tmp/tmpWJD9yi/p'
+qemu-system-i386 -nographic -drive file=fs.img,index=1,media=disk,format=raw -drive file=xv6.img,index=0,media=disk,format=raw -smp 2 -m 512 
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+
+
+iPXE (http://ipxe.org) 00:03.0 CA00 PCI2.10 PnP PMM+1FF8CA10+1FECCA10 CA00
+Press Ctrl-B to configure iPXE (PCI 00:03.0)...                                                                               
+
+
+Booting from Hard Disk...
+xv6...
+cpu1: starting 1
+cpu0: starting 0
+sb: size 1000 nblocks 941 ninodes 200 nlog 30 logstart 2 inodestart 32 bmap start 58
+init: starting sh
+$ tester
+tester
+PASSED TEST!
+
+test fork_join PASSED (8 of 8)
+ (after fork(), join() should not succeed)
+
+starting threads_basic
+
+**********************************************************************
+
+Test threads_basic
+basic tests for thread_create() and thread_join()
+
+**********************************************************************
+Running xv6 user progam /mp/Downloads/mp4-mochiiten9158-main/tests/mp4/ctests/threads_basic.c
+Project path is: /tmp/tmpWJD9yi/p
+Trying to build project using make
+make
+make[1]: Entering directory '/tmp/tmpWJD9yi/p'
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -Werror -fno-omit-frame-pointer -I/mp/Downloads/mp4-mochiiten9158-main -fno-stack-protector -fno-pie -no-pie   -c -o tester.o tester.c
+tester.c: In function 'main':
+tester.c:67:24: error: passing argument 1 of 'thread_create' from incompatible pointer type [-Werror=incompatible-pointer-types]
+   67 |   pid1 = thread_create(&func, &arg1, &arg2);
+      |                        ^~~~~
+      |                        |
+      |                        void (*)(void *, void *)
+In file included from tester.c:8:
+user.h:30:26: note: expected 'void (*)(void *)' but argument is of type 'void (*)(void *, void *)'
+   30 | int thread_create(void (*tmain)(void *), void *stack, void *arg);
+      |                   ~~~~~~~^~~~~~~~~~~~~~
+tester.c:70:10: error: too few arguments to function 'thread_join'
+   70 |   pid2 = thread_join();
+      |          ^~~~~~~~~~~
+In file included from tester.c:8:
+user.h:31:5: note: declared here
+   31 | int thread_join(void **stack);
+      |     ^~~~~~~~~~~
+cc1: all warnings being treated as errors
+make[1]: *** [<builtin>: tester.o] Error 1
+make[1]: Leaving directory '/tmp/tmpWJD9yi/p'
+
+
+test threads_basic FAILED (0 of 8)
+ (basic tests for thread_create() and thread_join())
+ make failed (error 2)
+
+starting threads_many
+
+**********************************************************************
+
+Test threads_many
+create and join many threads
+
+**********************************************************************
+Running xv6 user progam /mp/Downloads/mp4-mochiiten9158-main/tests/mp4/ctests/threads_many.c
+Project path is: /tmp/tmpWJD9yi/p
+Trying to build project using make
+make
+make[1]: Entering directory '/tmp/tmpWJD9yi/p'
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -Werror -fno-omit-frame-pointer -I/mp/Downloads/mp4-mochiiten9158-main -fno-stack-protector -fno-pie -no-pie   -c -o tester.o tester.c
+tester.c: In function 'fill_ptable':
+tester.c:69:25: error: passing argument 1 of 'thread_create' from incompatible pointer type [-Werror=incompatible-pointer-types]
+   69 |     pid = thread_create(&func1, NULL, NULL);
+      |                         ^~~~~~
+      |                         |
+      |                         void (*)(void *, void *)
+In file included from tester.c:9:
+user.h:30:26: note: expected 'void (*)(void *)' but argument is of type 'void (*)(void *, void *)'
+   30 | int thread_create(void (*tmain)(void *), void *stack, void *arg);
+      |                   ~~~~~~~^~~~~~~~~~~~~~
+tester.c:85:11: error: too few arguments to function 'thread_join'
+   85 |     pid = thread_join();
+      |           ^~~~~~~~~~~
+In file included from tester.c:9:
+user.h:31:5: note: declared here
+   31 | int thread_join(void **stack);
+      |     ^~~~~~~~~~~
+tester.c: In function 'multiple_thread_create':
+tester.c:104:26: error: passing argument 1 of 'thread_create' from incompatible pointer type [-Werror=incompatible-pointer-types]
+  104 |     pid1 = thread_create(&func2, NULL, NULL);
+      |                          ^~~~~~
+      |                          |
+      |                          void (*)(void *, void *)
+In file included from tester.c:9:
+user.h:30:26: note: expected 'void (*)(void *)' but argument is of type 'void (*)(void *, void *)'
+   30 | int thread_create(void (*tmain)(void *), void *stack, void *arg);
+      |                   ~~~~~~~^~~~~~~~~~~~~~
+tester.c:106:12: error: too few arguments to function 'thread_join'
+  106 |     pid2 = thread_join();
+      |            ^~~~~~~~~~~
+In file included from tester.c:9:
+user.h:31:5: note: declared here
+   31 | int thread_join(void **stack);
+      |     ^~~~~~~~~~~
+cc1: all warnings being treated as errors
+make[1]: *** [<builtin>: tester.o] Error 1
+make[1]: Leaving directory '/tmp/tmpWJD9yi/p'
+
+
+test threads_many FAILED (0 of 8)
+ (create and join many threads)
+ make failed (error 2)
+
+starting threads_zombies
+
+**********************************************************************
+
+Test threads_zombies
+create many threads, and make them all zombies
+
+**********************************************************************
+Running xv6 user progam /mp/Downloads/mp4-mochiiten9158-main/tests/mp4/ctests/threads_zombies.c
+Project path is: /tmp/tmpWJD9yi/p
+Trying to build project using make
+make
+make[1]: Entering directory '/tmp/tmpWJD9yi/p'
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -Werror -fno-omit-frame-pointer -I/mp/Downloads/mp4-mochiiten9158-main -fno-stack-protector -fno-pie -no-pie   -c -o tester.o tester.c
+ld -m    elf_i386 -N -e main -Ttext 0 -o _tester tester.o ulib.o usys.o printf.o umalloc.o
+objdump -S _tester > tester.asm
+objdump -t _tester | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > tester.sym
+./mkfs fs.img README _cat _echo _forktest _grep _init _kill _ln _ls _mkdir _rm _sh _stressfs _usertests _wc _zombie _tester 
+nmeta 59 (boot, super, log blocks 30 inode blocks 26, bitmap blocks 1) blocks 941 total 1000
+balloc: first 714 blocks have been allocated
+balloc: write bitmap block at sector 58
+make[1]: Leaving directory '/tmp/tmpWJD9yi/p'
+make qemu-nox 
+make[1]: Entering directory '/tmp/tmpWJD9yi/p'
+qemu-system-i386 -nographic -drive file=fs.img,index=1,media=disk,format=raw -drive file=xv6.img,index=0,media=disk,format=raw -smp 2 -m 512 
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+
+
+iPXE (http://ipxe.org) 00:03.0 CA00 PCI2.10 PnP PMM+1FF8CA10+1FECCA10 CA00
+Press Ctrl-B to configure iPXE (PCI 00:03.0)...                                                                               
+
+
+Booting from Hard Disk..xv6...
+cpu1: starting 1
+cpu0: starting 0
+sb: size 1000 nblocks 941 ninodes 200 nlog 30 logstart 2 inodestart 32 bmap start 58
+init: starting sh
+$ tester
+tester
+Created 50 child threads, creator thread exiting...
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+
+
+iPXE (http://ipxe.org) 00:03.0 CA00 PCI2.10 PnP PMM+1FF8CA10+1FECCA10 CA00
+Press Ctrl-B to configure iPXE (PCI 00:03.0)...                                                                               
+
+
+Booting from Hard Disk..xv6...
+cpu1: starting 1
+cpu0: starting 0
+sb: size 1000 nblocks 941 ninodes 200 nlog 30 logstart 2 inodestart 32 bmap start 58
+init: starting sh
+$ 
+
+test threads_zombies FAILED (0 of 8)
+ (create many threads, and make them all zombies)
+ tester failed
+
+starting threads_sbrk
+
+**********************************************************************
+
+Test threads_sbrk
+test to make sure threads handle sbrk() correctly
+
+**********************************************************************
+Running xv6 user progam /mp/Downloads/mp4-mochiiten9158-main/tests/mp4/ctests/threads_sbrk.c
+Project path is: /tmp/tmpWJD9yi/p
+Trying to build project using make
+make
+make[1]: Entering directory '/tmp/tmpWJD9yi/p'
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -Werror -fno-omit-frame-pointer -I/mp/Downloads/mp4-mochiiten9158-main -fno-stack-protector -fno-pie -no-pie   -c -o tester.o tester.c
+ld -m    elf_i386 -N -e main -Ttext 0 -o _tester tester.o ulib.o usys.o printf.o umalloc.o
+objdump -S _tester > tester.asm
+objdump -t _tester | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > tester.sym
+./mkfs fs.img README _cat _echo _forktest _grep _init _kill _ln _ls _mkdir _rm _sh _stressfs _usertests _wc _zombie _tester 
+nmeta 59 (boot, super, log blocks 30 inode blocks 26, bitmap blocks 1) blocks 941 total 1000
+balloc: first 724 blocks have been allocated
+balloc: write bitmap block at sector 58
+make[1]: Leaving directory '/tmp/tmpWJD9yi/p'
+make qemu-nox 
+make[1]: Entering directory '/tmp/tmpWJD9yi/p'
+qemu-system-i386 -nographic -drive file=fs.img,index=1,media=disk,format=raw -drive file=xv6.img,index=0,media=disk,format=raw -smp 2 -m 512 
+c[?7l[2J[0mSeaBIOS (version 1.13.0-1ubuntu1.1)
+
+
+iPXE (http://ipxe.org) 00:03.0 CA00 PCI2.10 PnP PMM+1FF8CA10+1FECCA10 CA00
+Press Ctrl-B to configure iPXE (PCI 00:03.0)...                                                                               
+
+
+Booting from Hard Disk..xv6...
+cpu1: starting 1
+cpu0: starting 0
+sb: size 1000 nblocks 941 ninodes 200 nlog 30 logstart 2 inodestart 32 bmap start 58
+init: starting sh
+$ tester
+tester
+Creating 1 thread to call sbrk() once...
+tester.c:93 check (addr == (char *)stack1 + 2*PGSIZE) failed: sbrk() failed
+TEST FAILED
+
+test threads_sbrk FAILED (0 of 8)
+ (test to make sure threads handle sbrk() correctly)
+ tester failed
+
+starting lock_basic
+
+**********************************************************************
+
+Test lock_basic
+basic test for lock correctness
+
+**********************************************************************
+Running xv6 user progam /mp/Downloads/mp4-mochiiten9158-main/tests/mp4/ctests/lock_basic.c
+Project path is: /tmp/tmpWJD9yi/p
+Trying to build project using make
+make
+make[1]: Entering directory '/tmp/tmpWJD9yi/p'
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -Werror -fno-omit-frame-pointer -I/mp/Downloads/mp4-mochiiten9158-main -fno-stack-protector -fno-pie -no-pie   -c -o tester.o tester.c
+tester.c:20:1: error: unknown type name 'lock_t'
+   20 | lock_t lock;
+      | ^~~~~~
+tester.c: In function 'func':
+tester.c:48:5: error: implicit declaration of function 'lock_acquire' [-Werror=implicit-function-declaration]
+   48 |     lock_acquire(&lock);
+      |     ^~~~~~~~~~~~
+tester.c:54:5: error: implicit declaration of function 'lock_release' [-Werror=implicit-function-declaration]
+   54 |     lock_release(&lock);
+      |     ^~~~~~~~~~~~
+tester.c: In function 'main':
+tester.c:69:3: error: implicit declaration of function 'lock_init' [-Werror=implicit-function-declaration]
+   69 |   lock_init(&lock);
+      |   ^~~~~~~~~
+cc1: all warnings being treated as errors
+make[1]: *** [<builtin>: tester.o] Error 1
+make[1]: Leaving directory '/tmp/tmpWJD9yi/p'
+
+
+test lock_basic FAILED (0 of 8)
+ (basic test for lock correctness)
+ make failed (error 2)
+
+starting lock_setup
+
+**********************************************************************
+
+Test lock_setup
+test that locks are set up correctly and do not interfere with each other
+
+**********************************************************************
+Running xv6 user progam /mp/Downloads/mp4-mochiiten9158-main/tests/mp4/ctests/lock_setup.c
+Project path is: /tmp/tmpWJD9yi/p
+Trying to build project using make
+make
+make[1]: Entering directory '/tmp/tmpWJD9yi/p'
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -Werror -fno-omit-frame-pointer -I/mp/Downloads/mp4-mochiiten9158-main -fno-stack-protector -fno-pie -no-pie   -c -o tester.o tester.c
+tester.c:20:1: error: unknown type name 'lock_t'
+   20 | lock_t lock1, lock2;
+      | ^~~~~~
+tester.c: In function 'func':
+tester.c:48:5: error: implicit declaration of function 'lock_acquire' [-Werror=implicit-function-declaration]
+   48 |     lock_acquire(&lock1);
+      |     ^~~~~~~~~~~~
+tester.c:54:5: error: implicit declaration of function 'lock_release' [-Werror=implicit-function-declaration]
+   54 |     lock_release(&lock1);
+      |     ^~~~~~~~~~~~
+tester.c: In function 'main':
+tester.c:70:26: error: 'lock_t' undeclared (first use in this function); did you mean 'lock2'?
+   70 |   for (i = 0; i < sizeof(lock_t); ++i) {
+      |                          ^~~~~~
+      |                          lock2
+tester.c:70:26: note: each undeclared identifier is reported only once for each function it appears in
+tester.c:75:3: error: implicit declaration of function 'lock_init' [-Werror=implicit-function-declaration]
+   75 |   lock_init(&lock1);
+      |   ^~~~~~~~~
+cc1: all warnings being treated as errors
+make[1]: *** [<builtin>: tester.o] Error 1
+make[1]: Leaving directory '/tmp/tmpWJD9yi/p'
+
+
+test lock_setup FAILED (0 of 8)
+ (test that locks are set up correctly and do not interfere with each other)
+ make failed (error 2)
+
+**********************************************************************
+Summary:
+test build PASSED
+ (build xv6 using make)
+
+test clone_basic PASSED (6 of 6)
+ (test for basic functionailty of clone(), with no cleanup)
+
+test clone_parent_sleep PASSED (6 of 6)
+ (test for clone() and join() where the thread terminates before join() is called)
+
+test clone_child_sleep PASSED (6 of 6)
+ (basic test for clone() and join())
+
+test clone_arguments PASSED (6 of 6)
+ (test for arguments to clone() and join())
+
+test clone_bad PASSED (6 of 6)
+ (error tests for clone() and join())
+
+test clone_return PASSED (6 of 6)
+ (test for clone() where the thread function returns, requires manual inspection)
+
+test clone_wait FAILED (0 of 8)
+ (after clone(), wait() should not succeed)
+ tester failed
+
+test fork_join PASSED (8 of 8)
+ (after fork(), join() should not succeed)
+
+test threads_basic FAILED (0 of 8)
+ (basic tests for thread_create() and thread_join())
+ make failed (error 2)
+
+test threads_many FAILED (0 of 8)
+ (create and join many threads)
+ make failed (error 2)
+
+test threads_zombies FAILED (0 of 8)
+ (create many threads, and make them all zombies)
+ tester failed
+
+test threads_sbrk FAILED (0 of 8)
+ (test to make sure threads handle sbrk() correctly)
+ tester failed
+
+test lock_basic FAILED (0 of 8)
+ (basic test for lock correctness)
+ make failed (error 2)
+
+test lock_setup FAILED (0 of 8)
+ (test that locks are set up correctly and do not interfere with each other)
+ make failed (error 2)
+
+Passed 8 of 15 tests.
+Overall 8 of 15
+Points 44 of 100
