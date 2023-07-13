@@ -1,0 +1,4 @@
+#!/bin/bash
+base=$PWD/tests/mp4
+python $base/mp4.py --test-path $base $@ | tee mp4test.log
+exit $?
